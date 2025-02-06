@@ -250,7 +250,11 @@
 			if (permission_exists('fax_extension_edit')) {
 				$list_row_url = "fax_edit.php?id=".urlencode($row['fax_uuid']);
 			}
-			echo "<tr class='list-row' href='".$list_row_url."'>\n";
+			if ($row['domain_uuid'] != $_SESSION['domain_uuid'] && permission_exists('domain_view')) {
+				echo "<tr class='list-row' href='".$list_row_url."&domain_uuid=".escape($row['domain_uuid'])."&domain_change=true'>\n";
+			} else {
+				echo "<tr class='list-row' href='".$list_row_url."'>\n";
+			}
 			if (permission_exists('fax_extension_add') || permission_exists('fax_extension_delete')) {
 				echo "	<td class='checkbox'>\n";
 				echo "		<input type='checkbox' name='fax_servers[$x][checked]' id='checkbox_".$x."' value='true' onclick=\"checkbox_on_change(this); if (!this.checked) { document.getElementById('checkbox_all').checked = false; }\">\n";
