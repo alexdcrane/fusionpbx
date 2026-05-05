@@ -295,7 +295,7 @@ class operator_panel_service extends base_websocket_system_service implements we
 	 *
 	 * @return void
 	 */
-	protected function reload_settings(): void {
+	public function reload_settings(): void {
 		// Ensure reload is idempotent by removing stale listener/timers before re-registering.
 		if (!empty($this->switch_socket)) {
 			$this->remove_listener($this->switch_socket);
