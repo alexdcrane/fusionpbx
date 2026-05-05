@@ -218,7 +218,7 @@
 			$ring_group_timeout_action = $_POST["ring_group_timeout_action"];
 			$ring_group_exit_key = $_POST["ring_group_exit_key"] ?? null;
 			$ring_group_call_timeout = $_POST["ring_group_call_timeout"];
-			$ring_group_caller_id_name = $_POST["ring_group_caller_id_name"];
+			$ring_group_caller_id_name = str_replace(':', '', $_POST["ring_group_caller_id_name"]);
 			$ring_group_caller_id_number = $_POST["ring_group_caller_id_number"];
 			$ring_group_cid_name_prefix = $_POST["ring_group_cid_name_prefix"] ?? null;
 			$ring_group_cid_number_prefix = $_POST["ring_group_cid_number_prefix"] ?? null;
